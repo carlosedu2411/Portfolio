@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-br" data-bs-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Comentários | Carlos Eduardo</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/projeto.css">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand fw-bold" href="../Index.html">
+        <img src="../assets/logo.png" alt="Logo" height="36" onerror="this.style.display='none'">
+        <span class="logo-text ms-2">CE.</span>
+      </a>
+      <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+        <i class="bi bi-list fs-2" style="color:var(--accent)"></i>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navMenu">
+        <ul class="navbar-nav gap-2">
+          <li class="nav-item"><a class="nav-link nav-pill" href="../Index.html#home">Home</a></li>
+          <li class="nav-item"><a class="nav-link nav-pill" href="../Index.html#about">Sobre</a></li>
+          <li class="nav-item"><a class="nav-link nav-pill active" href="../Index.html#projects">Projetos</a></li>
+          <li class="nav-item"><a class="nav-link nav-pill" href="../Index.html#contact">Contato</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <div class="projeto-hero" style="background-image: url('../assets/comentarios.png'); background-color: #0a1a2e;">
+    <div class="projeto-hero-title" data-aos="fade-up" data-aos-duration="700">
+      <h1>Comentários</h1>
+      <p>Sistema de Comentários com Persistência Local</p>
+    </div>
+  </div>
+
+  <!-- CONTEÚDO -->
+  <div class="projeto-container">
+
+    <a href="../Index.html#projects" class="volta-btn" data-aos="fade-right">
+      <i class="bi bi-arrow-left"></i> Voltar aos Projetos
+    </a>
+
+    <!-- Tags -->
+    <div class="projeto-tags" data-aos="fade-up">
+      <span class="projeto-tag">HTML5</span>
+      <span class="projeto-tag">CSS3</span>
+      <span class="projeto-tag">JavaScript</span>
+      <span class="projeto-tag">LocalStorage</span>
+      <span class="projeto-tag">SPA</span>
+    </div>
+
+    <!-- Descrição -->
+    <div class="projeto-section" data-aos="fade-up">
+      <div class="projeto-section-header">
+        <div class="projeto-section-icon"><i class="bi bi-file-text"></i></div>
+        <h2>Descrição do Projeto</h2>
+      </div>
+      <div class="projeto-block">
+        <p>Uma aplicação web interativa que permite aos usuários criar, visualizar e gerenciar comentários. Os dados são armazenados em um banco de dados local, demonstrando conhecimento em persistência de dados e manipulação do DOM com JavaScript.</p>
+      </div>
+    </div>
+
+    <!-- Tecnologias -->
+    <div class="projeto-section" data-aos="fade-up" data-aos-delay="50">
+      <div class="projeto-section-header">
+        <div class="projeto-section-icon"><i class="bi bi-tools"></i></div>
+        <h2>Tecnologias Utilizadas</h2>
+      </div>
+      <div class="projeto-block">
+        <ul class="projeto-list">
+          <li><span><strong>Frontend:</strong> HTML5, CSS3, JavaScript Vanilla</span></li>
+          <li><span><strong>Armazenamento:</strong> LocalStorage / IndexedDB</span></li>
+          <li><span><strong>Arquitetura:</strong> Single Page Application (SPA)</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Funcionalidades -->
+    <div class="projeto-section" data-aos="fade-up" data-aos-delay="100">
+      <div class="projeto-section-header">
+        <div class="projeto-section-icon"><i class="bi bi-stars"></i></div>
+        <h2>Funcionalidades Principais</h2>
+      </div>
+      <div class="projeto-block">
+        <ul class="projeto-list">
+          <li><span>Adicionar novos comentários em tempo real</span></li>
+          <li><span>Listar todos os comentários salvos</span></li>
+          <li><span>Persistência de dados no navegador</span></li>
+          <li><span>Interface intuitiva e responsiva</span></li>
+          <li><span>Validação de entrada de dados</span></li>
+          <li><span>Possibilidade de deletar comentários</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Aprendizados -->
+    <div class="projeto-section" data-aos="fade-up" data-aos-delay="150">
+      <div class="projeto-section-header">
+        <div class="projeto-section-icon"><i class="bi bi-mortarboard"></i></div>
+        <h2>Aprendizados</h2>
+      </div>
+      <div class="projeto-block">
+        <ul class="projeto-list">
+          <li><span>Manipulação do DOM com JavaScript puro</span></li>
+          <li><span>Uso de LocalStorage para persistência de dados</span></li>
+          <li><span>Eventos do JavaScript (click, input, etc)</span></li>
+          <li><span>Estruturação de dados em JSON</span></li>
+          <li><span>Design responsivo para diferentes dispositivos</span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- GitHub -->
+    <div class="text-center mt-5" data-aos="zoom-in" data-aos-delay="200">
+      <a href="https://github.com/errghvcxty/Comentarios" target="_blank" class="github-link-btn">
+        <i class="bi bi-github fs-5"></i> Ver no GitHub
+      </a>
+    </div>
+
+  </div>
+
+  <footer>
+    <p>© 2026 Carlos Eduardo. Todos os direitos reservados.</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    AOS.init({ duration: 700, easing: 'ease-out-cubic', once: true, offset: 40 });
+    const nav = document.getElementById("mainNav");
+    window.addEventListener("scroll", () => {
+      nav.classList.toggle("has-shadow", window.scrollY > 40);
+    });
+  </script>
+</body>
+</html>

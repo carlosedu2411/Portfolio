@@ -1,0 +1,317 @@
+/* ============================================================
+   CARLOS EDUARDO — projeto.css
+   Páginas de detalhe de projeto
+   Depende de: Bootstrap 5, Bootstrap Icons, AOS, Syne, Space Mono
+   ============================================================ */
+
+/* ── VARIABLES (espelha style.css) ── */
+:root {
+  --accent:      #fffb00;
+  --accent-dim:  rgba(255, 251, 0, 0.1);
+  --accent-glow: 0 0 24px rgba(255, 251, 0, 0.35);
+  --bg:          #080808;
+  --bg-card:     #111111;
+  --bg-section:  #0d0d0d;
+  --border:      #1e1e1e;
+  --text-muted:  #777;
+  --radius:      14px;
+  --font-display:'Syne', sans-serif;
+  --font-mono:   'Space Mono', monospace;
+  --transition:  0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { overflow-x: hidden; scroll-behavior: smooth; }
+body {
+  background: var(--bg);
+  color: #e8e8e8;
+  font-family: var(--font-display);
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+/* ──────────────────────────────────────────
+   NAVBAR  (mesma do index)
+───────────────────────────────────────────*/
+#mainNav {
+  background: rgba(8,8,8,0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+#mainNav.has-shadow { box-shadow: 0 4px 30px rgba(0,0,0,0.5); }
+.navbar-brand .logo-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+.nav-pill {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #aaa !important;
+  padding: 6px 14px !important;
+  border-radius: 20px;
+  transition: var(--transition);
+  letter-spacing: 0.05em;
+}
+.nav-pill:hover, .nav-pill.active {
+  color: var(--accent) !important;
+  background: var(--accent-dim);
+}
+
+/* ──────────────────────────────────────────
+   HERO BANNER
+───────────────────────────────────────────*/
+.projeto-hero {
+  width: 100%;
+  height: 55vh;
+  min-height: 340px;
+  margin-top: 65px;               /* compensa navbar fixa */
+  position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  /* fallback sólido caso a imagem não carregue */
+  background-color: #111;
+  overflow: hidden;
+  /* garante que nada vaze pra fora */
+  isolation: isolate;
+}
+/* overlay gradiente para o texto ficar legível */
+.projeto-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,8,8,0.15) 0%,
+    rgba(8,8,8,0.55) 55%,
+    rgba(8,8,8,0.95) 100%
+  );
+}
+/* fallback visual quando não há imagem — grade sutil */
+.projeto-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(255,251,0,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,251,0,0.04) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+/* título flutuando sobre o banner */
+.projeto-hero-title {
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  padding: 0 20px;
+  /* garante que NÃO extrapola o pai */
+  max-width: 100%;
+  box-sizing: border-box;
+}
+.projeto-hero-title h1 {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 6vw, 4rem);
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin: 0 0 8px;
+}
+.projeto-hero-title p {
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: #aaa;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ──────────────────────────────────────────
+   BACK BUTTON
+───────────────────────────────────────────*/
+.volta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  text-decoration: none;
+  padding: 8px 0;
+  margin-bottom: 40px;
+  border-bottom: 1px solid transparent;
+  transition: var(--transition);
+}
+.volta-btn:hover {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+  gap: 14px;
+}
+
+/* ──────────────────────────────────────────
+   CONTAINER PRINCIPAL
+───────────────────────────────────────────*/
+.projeto-container {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 50px 20px 80px;
+}
+
+/* ──────────────────────────────────────────
+   TAG CHIPS  (tecnologias no topo)
+───────────────────────────────────────────*/
+.projeto-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 48px;
+  justify-content: center;
+}
+.projeto-tag {
+  padding: 5px 16px;
+  border-radius: 50px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(255,251,0,0.2);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
+/* ──────────────────────────────────────────
+   SEÇÕES DE CONTEÚDO
+───────────────────────────────────────────*/
+.projeto-section {
+  margin-bottom: 36px;
+}
+.projeto-section-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.projeto-section-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(255,251,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+.projeto-section-header h2 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.15rem;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+/* Card que envolve cada bloco */
+.projeto-block {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 24px 28px;
+  transition: var(--transition);
+}
+.projeto-block:hover {
+  border-color: rgba(255,251,0,0.15);
+}
+.projeto-block p {
+  color: #bbb;
+  line-height: 1.75;
+  margin: 0;
+  font-size: 0.95rem;
+}
+
+/* Lista dentro dos cards */
+.projeto-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.projeto-list li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  color: #bbb;
+  font-size: 0.93rem;
+  line-height: 1.5;
+}
+.projeto-list li::before {
+  content: '';
+  display: block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-top: 7px;
+  flex-shrink: 0;
+}
+.projeto-list li strong {
+  color: #e8e8e8;
+}
+
+/* ──────────────────────────────────────────
+   GITHUB BUTTON
+───────────────────────────────────────────*/
+.github-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: #000;
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  text-decoration: none;
+  transition: var(--transition);
+}
+.github-link-btn:hover {
+  background: transparent;
+  color: var(--accent);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-3px);
+}
+
+/* ──────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────*/
+footer {
+  border-top: 1px solid var(--border);
+  background: #050505;
+  padding: 28px;
+  text-align: center;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────*/
+@media (max-width: 768px) {
+  .projeto-hero { height: 40vh; }
+  .projeto-container { padding: 36px 16px 60px; }
+  .projeto-block { padding: 20px; }
+}

@@ -1,0 +1,513 @@
+/* ============================================================
+   CARLOS EDUARDO PORTFOLIO — style.css
+   Framework: Bootstrap 5 + AOS + custom layer
+   ============================================================ */
+
+/* ── FONTS ── */
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;700;800&display=swap');
+
+/* ── CSS VARIABLES ── */
+:root {
+  --accent:       #fffb00;
+  --accent-dim:   rgba(255, 251, 0, 0.15);
+  --accent-glow:  0 0 24px rgba(255, 251, 0, 0.4);
+  --bg:           #080808;
+  --bg-darker:    #050505;
+  --bg-card:      #111111;
+  --border:       #1e1e1e;
+  --text-muted:   #777;
+  --radius:       14px;
+  --font-display: 'Syne', sans-serif;
+  --font-mono:    'Space Mono', monospace;
+  --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── RESET & BASE ── */
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; overflow-x: hidden; }
+
+body {
+  background: var(--bg);
+  color: #e8e8e8;
+  font-family: var(--font-display);
+  overflow-x: hidden;
+}
+
+/* ── ACCENT COLOUR UTILITY ── */
+.text-accent { color: var(--accent) !important; }
+.bg-darker   { background: var(--bg-darker) !important; }
+
+/* ── SECTION SPACING ── */
+.py-section { padding: 100px 0; }
+
+/* ── SECTION LABELS & TITLES ── */
+.section-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: block;
+}
+.section-title {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  margin: 0;
+}
+
+/* ──────────────────────────────────────────
+   NAVBAR
+───────────────────────────────────────────*/
+#mainNav {
+  background: rgba(8, 8, 8, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--border);
+  transition: var(--transition);
+}
+#mainNav.scrolled {
+  border-bottom-color: rgba(255, 251, 0, 0.2);
+}
+.navbar-brand .logo-text {
+  font-family: var(--font-display);
+  font-weight: 800;
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+.nav-pill {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: #aaa !important;
+  padding: 6px 14px !important;
+  border-radius: 20px;
+  transition: var(--transition);
+  letter-spacing: 0.05em;
+}
+.nav-pill:hover,
+.nav-pill.active {
+  color: var(--accent) !important;
+  background: var(--accent-dim);
+}
+
+/* ──────────────────────────────────────────
+   HERO
+───────────────────────────────────────────*/
+.hero-section {
+  min-height: 100vh;
+  padding: 120px 0 80px;
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 20% 60%, rgba(255,251,0,0.04) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(118,75,162,0.08) 0%, transparent 50%),
+              var(--bg);
+}
+
+/* Subtle grid background */
+.hero-bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255,251,0,0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,251,0,0.03) 1px, transparent 1px);
+  background-size: 60px 60px;
+  pointer-events: none;
+}
+
+/* Badge pill */
+.badge-pill-custom {
+  display: inline-block;
+  padding: 6px 16px;
+  border-radius: 50px;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
+  background: var(--accent-dim);
+  animation: pulse-border 3s infinite;
+}
+@keyframes pulse-border {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(255,251,0,0.3); }
+  50%       { box-shadow: 0 0 0 8px rgba(255,251,0,0); }
+}
+
+.hero-name {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  line-height: 1.0;
+  letter-spacing: -0.03em;
+}
+.hero-role {
+  font-family: var(--font-mono);
+  font-size: clamp(1rem, 2.5vw, 1.3rem);
+  color: #888;
+  font-weight: 400;
+}
+.hero-desc {
+  font-size: 1.05rem;
+  max-width: 520px;
+  line-height: 1.7;
+  color: #888 !important;
+}
+
+/* Blinking cursor */
+.blinking-cursor {
+  color: var(--accent);
+  animation: blink 1s step-end infinite;
+}
+@keyframes blink { 50% { opacity: 0; } }
+
+/* CTA buttons */
+.btn-accent {
+  background: var(--accent);
+  color: #000;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 28px;
+  transition: var(--transition);
+}
+.btn-accent:hover {
+  background: #000;
+  color: var(--accent);
+  box-shadow: var(--accent-glow);
+  transform: translateY(-3px);
+}
+.btn-outline-accent {
+  background: transparent;
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius);
+  padding: 14px 28px;
+  transition: var(--transition);
+}
+.btn-outline-accent:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-3px);
+}
+
+/* Hero photo */
+.hero-img-wrapper {
+  position: relative;
+  width: 280px;
+  height: 280px;
+}
+.hero-photo {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--accent);
+  box-shadow: var(--accent-glow);
+  position: relative;
+  z-index: 2;
+}
+.hero-img-ring {
+  position: absolute;
+  inset: -12px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,251,0,0.2);
+  animation: spin-ring 12s linear infinite;
+}
+.hero-img-ring--2 {
+  inset: -24px;
+  border-color: rgba(255,251,0,0.1);
+  animation-duration: 20s;
+  animation-direction: reverse;
+}
+@keyframes spin-ring {
+  to { transform: rotate(360deg); }
+}
+
+/* Tech badges */
+.tech-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 50px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  color: #aaa;
+  letter-spacing: 0.05em;
+  transition: var(--transition);
+}
+.tech-badge:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.scroll-indicator span {
+  display: block;
+  width: 2px;
+  height: 50px;
+  background: linear-gradient(to bottom, var(--accent), transparent);
+  margin: auto;
+  animation: scroll-line 2s ease-in-out infinite;
+}
+@keyframes scroll-line {
+  0%   { transform: scaleY(0); transform-origin: top; }
+  50%  { transform: scaleY(1); transform-origin: top; }
+  51%  { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+
+/* ──────────────────────────────────────────
+   SOBRE — STAT CARDS
+───────────────────────────────────────────*/
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px 20px;
+  transition: var(--transition);
+}
+.stat-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-6px);
+  box-shadow: var(--accent-glow);
+}
+.stat-number {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: 2.8rem;
+  color: var(--accent);
+  line-height: 1;
+}
+.stat-label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 8px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+/* ──────────────────────────────────────────
+   PROJECT CARDS
+───────────────────────────────────────────*/
+.project-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 28px;
+  cursor: pointer;
+  transition: var(--transition);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+}
+.project-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  transform: scaleX(0);
+  transition: transform 0.4s ease;
+}
+.project-card:hover {
+  border-color: rgba(255,251,0,0.3);
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.4), var(--accent-glow);
+}
+.project-card:hover::before {
+  transform: scaleX(1);
+}
+
+.project-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 16px;
+}
+.project-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: 10px;
+  background: var(--accent-dim);
+  border: 1px solid rgba(255,251,0,0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+.icon-link {
+  color: var(--text-muted);
+  font-size: 1.3rem;
+  transition: var(--transition);
+  text-decoration: none;
+}
+.icon-link:hover {
+  color: var(--accent);
+}
+
+.project-title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: 1.3rem;
+  margin: 0 0 8px;
+}
+.project-desc {
+  color: #888;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  flex: 1;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.tag {
+  padding: 3px 12px;
+  border-radius: 50px;
+  background: rgba(255,251,0,0.08);
+  border: 1px solid rgba(255,251,0,0.15);
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.05em;
+}
+.project-arrow {
+  margin-top: 20px;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  transition: var(--transition);
+  letter-spacing: 0.05em;
+}
+.project-card:hover .project-arrow {
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+/* ──────────────────────────────────────────
+   SKILL CARDS
+───────────────────────────────────────────*/
+.skill-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  height: 100%;
+  transition: var(--transition);
+}
+.skill-card:hover {
+  border-color: rgba(255,251,0,0.3);
+  transform: translateY(-5px);
+}
+.skill-icon {
+  font-size: 2rem;
+  color: var(--accent);
+  margin-bottom: 16px;
+  display: block;
+}
+.skill-card h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  margin-bottom: 12px;
+}
+
+/* ──────────────────────────────────────────
+   SOCIAL BUTTONS
+───────────────────────────────────────────*/
+.btn-social {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  padding: 14px 30px;
+  border-radius: var(--radius);
+  border: 2px solid var(--accent);
+  color: var(--accent);
+  background: transparent;
+  transition: var(--transition);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: center;
+}
+.btn-social:hover {
+  background: var(--accent);
+  color: #000;
+  transform: translateY(-4px);
+  box-shadow: var(--accent-glow);
+}
+.btn-social--linkedin {
+  border-color: #0a66c2;
+  color: #0a66c2;
+}
+.btn-social--linkedin:hover {
+  background: #0a66c2;
+  color: #fff;
+  box-shadow: 0 0 24px rgba(10,102,194,0.4);
+}
+
+/* ──────────────────────────────────────────
+   CONTACT
+───────────────────────────────────────────*/
+.contact-item {
+  display: flex;
+  align-items: center;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 18px 28px;
+  font-family: var(--font-mono);
+  font-size: 0.9rem;
+  color: #ccc;
+  text-decoration: none;
+  transition: var(--transition);
+  width: 100%;
+  max-width: 400px;
+}
+.contact-item:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  transform: translateX(6px);
+}
+
+/* ──────────────────────────────────────────
+   FOOTER
+───────────────────────────────────────────*/
+footer {
+  border-top: 1px solid var(--border);
+  background: var(--bg-darker);
+  font-family: var(--font-mono);
+}
+
+/* ──────────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────────────*/
+@media (max-width: 768px) {
+  .hero-img-wrapper { width: 220px; height: 220px; }
+  .py-section { padding: 70px 0; }
+  .hero-section { padding: 110px 0 70px; }
+}
+
+/* ──────────────────────────────────────────
+   NAVBAR SCROLL SHADOW
+───────────────────────────────────────────*/
+#mainNav.has-shadow {
+  box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
