@@ -497,12 +497,153 @@ footer {
 }
 
 /* ──────────────────────────────────────────
-   RESPONSIVE
+   RESPONSIVE — MOBILE FIRST
 ───────────────────────────────────────────*/
-@media (max-width: 768px) {
-  .hero-img-wrapper { width: 220px; height: 220px; }
-  .py-section { padding: 70px 0; }
-  .hero-section { padding: 110px 0 70px; }
+
+/* ── Tablet e abaixo (< 992px) ── */
+@media (max-width: 991px) {
+  .hero-section {
+    padding: 100px 0 60px;
+    text-align: center;
+  }
+  .hero-text {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-desc {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .greeting {
+    display: flex;
+    justify-content: center;
+  }
+  /* botões: lado a lado ainda, mas centralizados */
+  .buttons, .d-flex.flex-wrap.gap-3 {
+    justify-content: center;
+  }
+}
+
+/* ── Mobile (< 768px) ── */
+@media (max-width: 767px) {
+
+  /* NAVBAR */
+  #mainNav {
+    padding: 10px 16px;
+  }
+
+  /* HERO */
+  .hero-section {
+    padding: 90px 0 50px;
+  }
+  .hero-name {
+    font-size: clamp(2.4rem, 12vw, 3.2rem);
+  }
+  .hero-role {
+    font-size: 1rem;
+  }
+  .hero-desc {
+    font-size: 0.95rem;
+  }
+
+  /* Botões hero: empilhados, largura total */
+  .btn-accent,
+  .btn-outline-accent {
+    width: 100%;
+    max-width: 320px;
+    text-align: center;
+    justify-content: center;
+  }
+  .d-flex.flex-wrap.gap-3 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* Foto menor */
+  .hero-img-wrapper {
+    width: 200px;
+    height: 200px;
+    margin-top: 10px;
+  }
+
+  /* Tech badges: scroll horizontal se necessário */
+  .tech-badges {
+    justify-content: center;
+  }
+  .tech-badge {
+    font-size: 0.68rem;
+    padding: 4px 10px;
+  }
+
+  /* SEÇÕES */
+  .py-section {
+    padding: 60px 0;
+  }
+  .section-title {
+    font-size: clamp(1.6rem, 7vw, 2.2rem);
+  }
+
+  /* STAT CARDS: 1 coluna */
+  .stat-card {
+    padding: 20px 16px;
+  }
+  .stat-number {
+    font-size: 2.2rem;
+  }
+
+  /* PROJECT CARDS: padding menor */
+  .project-card {
+    padding: 20px;
+  }
+
+  /* SKILL CARDS */
+  .skill-card {
+    padding: 24px 20px;
+  }
+
+  /* SOCIAL BUTTONS: empilhados */
+  .btn-social {
+    width: 100%;
+    max-width: 260px;
+    justify-content: center;
+  }
+  .d-flex.justify-content-center.gap-3.flex-wrap {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* CONTACT ITEMS: largura máxima */
+  .contact-item {
+    max-width: 100%;
+    font-size: 0.82rem;
+    padding: 14px 20px;
+  }
+
+  /* Scroll indicator some no mobile */
+  .scroll-indicator {
+    display: none;
+  }
+}
+
+/* ── Telas muito pequenas (< 400px) ── */
+@media (max-width: 399px) {
+  .hero-name {
+    font-size: 2.2rem;
+  }
+  .hero-img-wrapper {
+    width: 170px;
+    height: 170px;
+  }
+  .badge-pill-custom {
+    font-size: 0.68rem;
+    padding: 5px 12px;
+  }
+  .btn-accent,
+  .btn-outline-accent {
+    padding: 12px 20px;
+    font-size: 0.8rem;
+  }
 }
 
 /* ──────────────────────────────────────────
