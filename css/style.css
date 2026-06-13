@@ -36,6 +36,7 @@ body {
 /* ── ACCENT COLOUR UTILITY ── */
 .text-accent { color: var(--accent) !important; }
 .bg-darker   { background: var(--bg-darker) !important; }
+.text-justify { text-align: justify; }
 
 /* ── SECTION SPACING ── */
 .py-section { padding: 100px 0; }
@@ -43,7 +44,7 @@ body {
 /* ── SECTION LABELS & TITLES ── */
 .section-label {
   font-family: var(--font-mono);
-  font-size: 0.75rem;
+  font-size: clamp(0.75rem, 2vw, 1.05rem);
   letter-spacing: 0.2em;
   text-transform: uppercase;
   color: var(--accent);
@@ -651,4 +652,33 @@ footer {
 ───────────────────────────────────────────*/
 #mainNav.has-shadow {
   box-shadow: 0 4px 30px rgba(0,0,0,0.5);
+}
+
+/* ──────────────────────────────────────────
+   SCROLLBAR CUSTOMIZATION
+───────────────────────────────────────────*/
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 5px;
+  transition: var(--transition);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 251, 0, 0.8);
+  box-shadow: var(--accent-glow);
+}
+
+/* Firefox */
+* {
+  scrollbar-color: var(--accent) var(--bg);
+  scrollbar-width: thin;
 }
