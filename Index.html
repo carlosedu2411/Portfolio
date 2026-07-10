@@ -58,6 +58,7 @@
             Cursando Ciência da Computação, apaixonado por desenvolvimento de sistemas,
             lógica de programação e tecnologia. Construindo soluções do zero.
           </p>
+          
           <div class="d-flex flex-wrap gap-3">
             <a href="#projects" class="btn btn-accent btn-lg">
               Ver Projetos <i class="bi bi-arrow-down-right ms-1"></i>
@@ -123,16 +124,70 @@
               </div>
             </div>  
             <div class="col-md-4" data-aos="zoom-in" data-aos-delay="300">
-              <div class="stat-card">
-                <div class="stat-number">∞</div>
-                <div class="stat-label">Vontade de<br>Aprender</div>
-              </div>
+              <button type="button" class="stat-card stat-card-button" id="certButton" aria-controls="certificationsPanel" aria-expanded="false">
+                <div class="stat-number">4</div>
+                <div class="stat-label"><br>Certificações</div>
+              </button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
+
+  <div class="certifications-overlay" id="certificationsOverlay"></div>
+  <aside class="certifications-panel" id="certificationsPanel" aria-hidden="true">
+    <div class="certifications-panel__header">
+      <div class="certifications-panel__title">
+        <div class="certifications-panel__icon">
+          <i class="bi bi-award-fill"></i>
+        </div>
+        <div>
+          <h3>Minhas certificações</h3>
+          <p>Formações e qualificações relevantes</p>
+        </div>
+      </div>
+      <button type="button" class="certifications-panel__close" id="closeCertifications" aria-label="Fechar certificações">
+        <i class="bi bi-x-lg"></i>
+      </button>
+    </div>
+    <ul class="certifications-list">
+      <li>
+        <div class="certification-item__content">
+          <strong>Fundamentos do Python 1</strong>
+          <span>Cisco</span>
+        </div>
+        <a href="assets/Python_Essentials_1_certificate_carlosedu2411-gmail-com_134aa1f0-a763-423c-8321-555d61601557.pdf" class="cert-download-btn" download title="Baixar certificado">
+          <i class="bi bi-download"></i>
+        </a>
+      </li>
+      <li>
+        <div class="certification-item__content">
+          <strong>Conceitos básicos de rede</strong>
+          <span>Cisco</span>
+        </div>
+        <a href="assets/Networking_Basics_certificate_carlosedu2411-gmail-com_4cd21551-2cf9-4d51-be48-ad66e20607cd (1).pdf" class="cert-download-btn" download title="Baixar certificado">
+          <i class="bi bi-download"></i>
+        </a>
+      </li>
+      <li>
+        <div class="certification-item__content">
+          <strong>Introdução à Cibersegurança</strong>
+          <span>Senac-SE-Aracaju</span>
+        </div>
+        <a href="assets/Introduction_to_Cybersecurity_certificate_carlosedu2411-gmail-com_0286c191-607b-40c8-9081-7e90f6482734 (2).pdf" class="cert-download-btn" download title="Baixar certificado">
+          <i class="bi bi-download"></i>
+        </a>
+      </li>
+      <li>
+        <div class="certification-item__content">
+          <strong>Curso de qualificação profissional em programador de sistemas</strong>
+          <span>Senac-SE-Aracaju</span>
+        </div>
+        <span class="cert-status" title="PDF será adicionado depois">Em breve</span>
+      </li>
+    </ul>
+  </aside>
 
   <!-- PROJETOS -->
   <section id="projects" class="py-section bg-darker">  

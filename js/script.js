@@ -52,4 +52,31 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   });
 
+  // Abrir/fechar painel de certificações
+  const certButton = document.getElementById("certButton");
+  const certPanel = document.getElementById("certificationsPanel");
+  const certOverlay = document.getElementById("certificationsOverlay");
+  const closeCertButton = document.getElementById("closeCertifications");
+
+  function toggleCertPanel(forceOpen) {
+    const shouldOpen = typeof forceOpen === "boolean" ? forceOpen : !certPanel.classList.contains("open");
+    certPanel.classList.toggle("open", shouldOpen);
+    certOverlay.classList.toggle("open", shouldOpen);
+    document.body.classList.toggle("overflow-hidden", shouldOpen);
+    certButton.setAttribute("aria-expanded", shouldOpen);
+    certPanel.setAttribute("aria-hidden", String(!shouldOpen));
+  }
+
+  if (certButton && certPanel && certOverlay && closeCertButton) {
+    certButton.addEventListener("click", () => toggleCertPanel(true));
+    closeCertButton.addEventListener("click", () => toggleCertPanel(false));
+    certOverlay.addEventListener("click", () => toggleCertPanel(false));
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key === "Escape") {
+        toggleCertPanel(false);
+      }
+    });
+  }
+
 });
