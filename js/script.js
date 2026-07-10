@@ -6,6 +6,14 @@ function baixarCV() {
   link.click();
 }
 
+// ── SCROLL TO SECTION ─────────────────────────────────────
+function scrollToSection(sectionId) {
+  const element = document.getElementById(sectionId);
+  if (element) {
+    element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+}
+
 // ── AOS + NAVBAR + CARDS ─────────────────────────────────
 document.addEventListener("DOMContentLoaded", function () {
 
