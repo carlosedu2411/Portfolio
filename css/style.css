@@ -368,8 +368,11 @@ body {
 .technology-group {
   display: flex;
   align-items: center;
-  gap: 14px;
-  padding: 12px 7px 8px;
+  justify-content: space-between;
+  gap: 0;
+  width: 100vw;
+  padding: 12px 0 8px;
+  min-width: 100vw;
   flex-shrink: 0;
 }
 .technology-item {
@@ -393,7 +396,8 @@ body {
   transform: translateY(-3px);
 }
 @keyframes technology-scroll {
-  to { transform: translateX(-50%); }
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
 }
 @media (prefers-reduced-motion: reduce) {
   .technology-track { animation-play-state: paused; }
